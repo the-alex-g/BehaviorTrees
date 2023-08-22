@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://s1ed7hvswkni"]
+
+[ext_resource type="PackedScene" uid="uid://dvj7v8i84ohj6" path="res://unit/unit.tscn" id="1_8aw88"]
+
+[node name="World" type="Node2D"]
+
+[node name="Unit" parent="." instance=ExtResource("1_8aw88")]
+position = Vector2(658, 399)
+team_index = 1
+color = Color(0, 0, 0, 1)
+
+[node name="Unit2" parent="." instance=ExtResource("1_8aw88")]
+position = Vector2(1145, 635)
+health = 100
+
+[node name="Unit3" parent="." instance=ExtResource("1_8aw88")]
+position = Vector2(-559, -284)
+team_index = 1
+color = Color(0, 0, 0, 1)

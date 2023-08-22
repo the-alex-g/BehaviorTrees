@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://b71onmborrc5y"]
+
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="1_llhke"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/inverter.gd" id="2_taxpd"]
+[ext_resource type="PackedScene" uid="uid://07jews632sqb" path="res://behavior_tree/conditionals/is_target_in_range.tscn" id="3_3fljb"]
+[ext_resource type="PackedScene" uid="uid://cc4h8sva088jg" path="res://behavior_tree/actions/look_at_target.tscn" id="4_ssosu"]
+[ext_resource type="PackedScene" uid="uid://b50j1ar1d6gj8" path="res://behavior_tree/actions/move_towards_target.tscn" id="5_blmgu"]
+
+[node name="MoveTowardsTarget" type="Node"]
+script = ExtResource("1_llhke")
+
+[node name="IsTargetNotInRange" type="Node" parent="."]
+script = ExtResource("2_taxpd")
+
+[node name="IsTargetInRange" parent="IsTargetNotInRange" instance=ExtResource("3_3fljb")]
+
+[node name="LookAtTarget" parent="." instance=ExtResource("4_ssosu")]
+
+[node name="MoveTowardsTarget" parent="." instance=ExtResource("5_blmgu")]

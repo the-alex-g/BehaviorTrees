@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt6mjifxlve86"]
+
+[ext_resource type="Script" path="res://behavior_tree/actions/attack_cooldown.gd" id="1_nr0s8"]
+
+[node name="AttackCooldown" type="Node"]
+script = ExtResource("1_nr0s8")

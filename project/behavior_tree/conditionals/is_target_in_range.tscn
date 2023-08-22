@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://07jews632sqb"]
+
+[ext_resource type="Script" path="res://behavior_tree/conditionals/is_target_in_range.gd" id="1_veyid"]
+
+[node name="IsTargetInRange" type="Node"]
+script = ExtResource("1_veyid")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc4h8sva088jg"]
+
+[ext_resource type="Script" path="res://behavior_tree/actions/look_at_target.gd" id="1_o2vdi"]
+
+[node name="LookAtTarget" type="Node"]
+script = ExtResource("1_o2vdi")

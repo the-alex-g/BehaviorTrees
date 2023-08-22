@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b50j1ar1d6gj8"]
+
+[ext_resource type="Script" path="res://behavior_tree/actions/move_towards_target.gd" id="1_rkabi"]
+
+[node name="MoveTowardsTarget" type="Node"]
+script = ExtResource("1_rkabi")

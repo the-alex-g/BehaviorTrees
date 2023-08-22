@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf32v0efh7p48"]
+
+[ext_resource type="Script" path="res://behavior_tree/conditionals/has_target.gd" id="1_4xuu6"]
+
+[node name="HasTarget" type="Node"]
+script = ExtResource("1_4xuu6")

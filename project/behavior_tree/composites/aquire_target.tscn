@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://q8pg1jcs0xo"]
+
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="1_ftmac"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/inverter.gd" id="2_d5s1c"]
+[ext_resource type="PackedScene" uid="uid://cf32v0efh7p48" path="res://behavior_tree/conditionals/has_target.tscn" id="3_jodbr"]
+[ext_resource type="PackedScene" uid="uid://dhrtv0gmmprvo" path="res://behavior_tree/actions/get_target.tscn" id="4_0ku5e"]
+
+[node name="AquireTarget" type="Node"]
+script = ExtResource("1_ftmac")
+
+[node name="DoesNotHaveTarget" type="Node" parent="."]
+script = ExtResource("2_d5s1c")
+
+[node name="HasTarget" parent="DoesNotHaveTarget" instance=ExtResource("3_jodbr")]
+
+[node name="GetTarget" parent="." instance=ExtResource("4_0ku5e")]
