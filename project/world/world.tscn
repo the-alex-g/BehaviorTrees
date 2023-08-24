@@ -1,19 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://s1ed7hvswkni"]
+[gd_scene load_steps=4 format=3 uid="uid://s1ed7hvswkni"]
 
 [ext_resource type="PackedScene" uid="uid://dvj7v8i84ohj6" path="res://unit/unit.tscn" id="1_8aw88"]
+[ext_resource type="PackedScene" uid="uid://cfshh0vbftu3r" path="res://unit/collector_unit.tscn" id="2_r1krt"]
+[ext_resource type="PackedScene" uid="uid://duto2ehembcjr" path="res://stations/station.tscn" id="3_633ev"]
 
 [node name="World" type="Node2D"]
 
 [node name="Unit" parent="." instance=ExtResource("1_8aw88")]
 position = Vector2(658, 399)
 team_index = 1
+speed = 100
+attack_cooldown_time = 0.5
 color = Color(0, 0, 0, 1)
 
 [node name="Unit2" parent="." instance=ExtResource("1_8aw88")]
 position = Vector2(1145, 635)
-health = 100
+speed = 100
+health = 110
+attack_cooldown_time = 0.5
 
 [node name="Unit3" parent="." instance=ExtResource("1_8aw88")]
-position = Vector2(-559, -284)
+position = Vector2(102, 38)
 team_index = 1
+speed = 100
+attack_cooldown_time = 0.5
 color = Color(0, 0, 0, 1)
+
+[node name="CollectorUnit" parent="." instance=ExtResource("2_r1krt")]
+position = Vector2(1062, 14)
+team_index = 1
+speed = 150
+color = Color(0.501961, 0, 0, 1)
+
+[node name="Station" parent="." instance=ExtResource("3_633ev")]
+position = Vector2(34, 475)
+team_index = 1

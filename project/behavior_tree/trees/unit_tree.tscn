@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_2n2xc"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_60784"]
-[ext_resource type="PackedScene" uid="uid://q8pg1jcs0xo" path="res://behavior_tree/composites/aquire_target.tscn" id="3_fuuo1"]
-[ext_resource type="PackedScene" uid="uid://cf32v0efh7p48" path="res://behavior_tree/conditionals/has_target.tscn" id="4_mf7b4"]
+[ext_resource type="PackedScene" uid="uid://n2umei8eivg8" path="res://behavior_tree/composites/aquire_target.tscn" id="3_80iwv"]
 [ext_resource type="PackedScene" uid="uid://b71onmborrc5y" path="res://behavior_tree/composites/move_towards_target.tscn" id="4_xeouv"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence_star.gd" id="5_ekt46"]
+[ext_resource type="PackedScene" uid="uid://cf32v0efh7p48" path="res://behavior_tree/conditionals/has_target.tscn" id="6_6ukjl"]
 [ext_resource type="PackedScene" uid="uid://cchpflesoupc" path="res://behavior_tree/actions/execute_melee_attack.tscn" id="6_fhka5"]
 [ext_resource type="PackedScene" uid="uid://bt6mjifxlve86" path="res://behavior_tree/actions/attack_cooldown.tscn" id="7_rcyx8"]
 
@@ -15,14 +15,14 @@ script = ExtResource("1_2n2xc")
 [node name="MainSequence" type="Node" parent="."]
 script = ExtResource("2_60784")
 
-[node name="AquireTarget" parent="MainSequence" instance=ExtResource("3_fuuo1")]
+[node name="AquireTarget" parent="MainSequence" instance=ExtResource("3_80iwv")]
 
 [node name="MoveTowardsTarget" parent="MainSequence" instance=ExtResource("4_xeouv")]
 
 [node name="Attack" type="Node" parent="MainSequence"]
 script = ExtResource("5_ekt46")
 
-[node name="HasTarget" parent="MainSequence/Attack" instance=ExtResource("4_mf7b4")]
+[node name="HasTarget" parent="MainSequence/Attack" instance=ExtResource("6_6ukjl")]
 
 [node name="AttackCooldown" parent="MainSequence/Attack" instance=ExtResource("7_rcyx8")]
 

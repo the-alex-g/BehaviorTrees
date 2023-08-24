@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c34kf08lemj"]
+
+[ext_resource type="Script" path="res://behavior_tree/actions/deposit_resources.gd" id="1_f1mbf"]
+
+[node name="DepositResources" type="Node"]
+script = ExtResource("1_f1mbf")

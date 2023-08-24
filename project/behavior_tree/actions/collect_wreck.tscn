@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq28wcuvlkup1"]
+
+[ext_resource type="Script" path="res://behavior_tree/actions/collect_wreck.gd" id="1_l8pbd"]
+
+[node name="CollectWreck" type="Node"]
+script = ExtResource("1_l8pbd")

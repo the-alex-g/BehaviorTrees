@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfivent6c5hwt"]
+
+[ext_resource type="Script" path="res://behavior_tree/conditionals/is_carrying_resources.gd" id="1_vf7bm"]
+
+[node name="IsCarryingResources" type="Node"]
+script = ExtResource("1_vf7bm")

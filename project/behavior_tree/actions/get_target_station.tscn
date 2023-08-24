@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8aq4nbie122j"]
+
+[ext_resource type="Script" path="res://behavior_tree/actions/get_target_station.gd" id="1_elyfs"]
+
+[node name="GetTargetStation" type="Node"]
+script = ExtResource("1_elyfs")

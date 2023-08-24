@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpl7ad7csqq8r"]
+
+[ext_resource type="Script" path="res://behavior_tree/conditionals/is_target_wreck.gd" id="1_ii2g0"]
+
+[node name="IsTargetWreck" type="Node"]
+script = ExtResource("1_ii2g0")

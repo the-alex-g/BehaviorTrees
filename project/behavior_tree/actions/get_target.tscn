@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhrtv0gmmprvo"]
-
-[ext_resource type="Script" path="res://behavior_tree/actions/get_target.gd" id="1_6wng7"]
-
-[node name="GetTarget" type="Node"]
-script = ExtResource("1_6wng7")

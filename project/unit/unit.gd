@@ -11,12 +11,13 @@ extends CharacterBody2D
 
 
 func _ready()->void:
-	ArmyTracker.add_unit(self)
+	ArmyTracker.add_target(self)
 	weapon_range += $CollisionShape2D.shape.radius * 2
 
 
 func _die()->void:
-	ArmyTracker.remove_unit(self)
+	_drop_wreck()
+	ArmyTracker.remove_target(self)
 	queue_free()
 
 
@@ -24,6 +25,12 @@ func hit(value:int)->void:
 	health -= value
 	if health <= 0:
 		_die()
+
+
+func _drop_wreck()->void:
+	var wreck : Wreck = load("res://unit/wreck.tscn").instantiate()
+	wreck.position = global_position
+	get_parent().add_child(wreck)
 
 
 func _draw()->void:

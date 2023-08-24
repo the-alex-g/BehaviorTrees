@@ -1,0 +1,76 @@
+[gd_scene load_steps=13 format=3 uid="uid://iym588lkb6vi"]
+
+[ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_83u8q"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_dc2fe"]
+[ext_resource type="PackedScene" uid="uid://cf32v0efh7p48" path="res://behavior_tree/conditionals/has_target.tscn" id="3_dbrw1"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="4_lgytd"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/inverter.gd" id="5_ivlg1"]
+[ext_resource type="PackedScene" uid="uid://dfivent6c5hwt" path="res://behavior_tree/conditionals/is_carrying_resources.tscn" id="6_pyntk"]
+[ext_resource type="PackedScene" uid="uid://cj0lvr1qly06o" path="res://behavior_tree/actions/get_target_wreck.tscn" id="7_nj40q"]
+[ext_resource type="PackedScene" uid="uid://8aq4nbie122j" path="res://behavior_tree/actions/get_target_station.tscn" id="8_nbpnv"]
+[ext_resource type="PackedScene" uid="uid://b71onmborrc5y" path="res://behavior_tree/composites/move_towards_target.tscn" id="9_ten1u"]
+[ext_resource type="PackedScene" uid="uid://07jews632sqb" path="res://behavior_tree/conditionals/is_target_in_range.tscn" id="10_j0281"]
+[ext_resource type="PackedScene" uid="uid://dq28wcuvlkup1" path="res://behavior_tree/actions/collect_wreck.tscn" id="11_3iw08"]
+[ext_resource type="PackedScene" uid="uid://c34kf08lemj" path="res://behavior_tree/actions/deposit_resources.tscn" id="12_bu1xx"]
+
+[node name="CollectorTree" type="Node"]
+script = ExtResource("1_83u8q")
+
+[node name="MainSelector" type="Node" parent="."]
+script = ExtResource("2_dc2fe")
+
+[node name="AquireTarget" type="Node" parent="MainSelector"]
+script = ExtResource("2_dc2fe")
+
+[node name="TargetWreck" type="Node" parent="MainSelector/AquireTarget"]
+script = ExtResource("4_lgytd")
+
+[node name="InverterDecorator2" type="Node" parent="MainSelector/AquireTarget/TargetWreck"]
+script = ExtResource("5_ivlg1")
+
+[node name="HasTarget" parent="MainSelector/AquireTarget/TargetWreck/InverterDecorator2" instance=ExtResource("3_dbrw1")]
+
+[node name="InverterDecorator" type="Node" parent="MainSelector/AquireTarget/TargetWreck"]
+script = ExtResource("5_ivlg1")
+
+[node name="IsCarryingResources" parent="MainSelector/AquireTarget/TargetWreck/InverterDecorator" instance=ExtResource("6_pyntk")]
+
+[node name="GetTargetWreck" parent="MainSelector/AquireTarget/TargetWreck" instance=ExtResource("7_nj40q")]
+
+[node name="TargetStation" type="Node" parent="MainSelector/AquireTarget"]
+script = ExtResource("4_lgytd")
+
+[node name="InverterDecorator" type="Node" parent="MainSelector/AquireTarget/TargetStation"]
+script = ExtResource("5_ivlg1")
+
+[node name="HasTarget" parent="MainSelector/AquireTarget/TargetStation/InverterDecorator" instance=ExtResource("3_dbrw1")]
+
+[node name="IsCarryingResources" parent="MainSelector/AquireTarget/TargetStation" instance=ExtResource("6_pyntk")]
+
+[node name="GetTargetStation" parent="MainSelector/AquireTarget/TargetStation" instance=ExtResource("8_nbpnv")]
+
+[node name="MoveTowardsTarget" parent="MainSelector" instance=ExtResource("9_ten1u")]
+
+[node name="ResolveTarget" type="Node" parent="MainSelector"]
+script = ExtResource("2_dc2fe")
+
+[node name="CollectResources" type="Node" parent="MainSelector/ResolveTarget"]
+script = ExtResource("4_lgytd")
+
+[node name="IsTargetInRange" parent="MainSelector/ResolveTarget/CollectResources" instance=ExtResource("10_j0281")]
+
+[node name="InverterDecorator" type="Node" parent="MainSelector/ResolveTarget/CollectResources"]
+script = ExtResource("5_ivlg1")
+
+[node name="IsCarryingResources" parent="MainSelector/ResolveTarget/CollectResources/InverterDecorator" instance=ExtResource("6_pyntk")]
+
+[node name="CollectWreck" parent="MainSelector/ResolveTarget/CollectResources" instance=ExtResource("11_3iw08")]
+
+[node name="DepositResources" type="Node" parent="MainSelector/ResolveTarget"]
+script = ExtResource("4_lgytd")
+
+[node name="IsTargetInRange" parent="MainSelector/ResolveTarget/DepositResources" instance=ExtResource("10_j0281")]
+
+[node name="IsCarryingResources" parent="MainSelector/ResolveTarget/DepositResources" instance=ExtResource("6_pyntk")]
+
+[node name="DepositResources" parent="MainSelector/ResolveTarget/DepositResources" instance=ExtResource("12_bu1xx")]
