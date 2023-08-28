@@ -8,6 +8,7 @@
 
 [node name="CollectorUnit" type="CharacterBody2D"]
 script = ExtResource("1_1v33i")
+weapon_range = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_aw8o8")

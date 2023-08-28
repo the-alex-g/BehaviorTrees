@@ -1,10 +1,12 @@
 extends ActionLeaf
 
+@export_enum("first", "second", "third") var target_priority := "first"
+
 
 func tick(actor:Node, blackboard:Blackboard)->int:
 	var stations := ArmyTracker.get_friendly_stations(actor.team_index)
 	if stations.size() > 0:
-		blackboard.set_value("target", _get_closest_station(actor.global_position, stations))
+		blackboard.set_value("target_" + target_priority, _get_closest_station(actor.global_position, stations))
 		return SUCCESS
 	else:
 		return FAILURE

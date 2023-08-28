@@ -1,10 +1,12 @@
 extends ActionLeaf
 
+@export_enum("first", "second", "third") var target_priority := "first"
+
 
 func tick(actor:Node, blackboard:Blackboard)->int:
 	var wrecks := ArmyTracker.wrecks
 	if wrecks.size() > 0:
-		blackboard.set_value("target", _get_closest_wreck(actor.global_position, wrecks))
+		blackboard.set_value("target_" + target_priority, _get_closest_wreck(actor.global_position, wrecks))
 		return SUCCESS
 	else:
 		return FAILURE
