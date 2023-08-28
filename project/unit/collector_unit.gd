@@ -47,3 +47,10 @@ extends Unit
 # attempt to navigate through the editor and get back to the execution before the event
 # that you're trying to catch occurs.
 # this would be less of a problem on a two-monitor setup.
+
+# There's no (obvious) way to give the BeeHave tree multiple actors to run on.
+# I just added this to my custom tree because I realized what it said in the e-mail,
+# but the best way I could quickly think of to do it was to have the actor subscribe to the tree
+# instead of the other way around. I could have done it the other way, but that would require an
+# untyped array export var, which are unpleasant at best to work with
+# (add a slot, type-hint the slot, add a value to the slot).
